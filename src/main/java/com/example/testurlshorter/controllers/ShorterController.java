@@ -22,7 +22,7 @@ public class ShorterController {
                 ResponseEntity.ok(shorterService.getBaseUrl(token));
     }
 
-    @PostMapping("")
+    @PostMapping("/short")
     public ResponseEntity getShortUrl(@RequestParam("baseUrl") String baseUrl){
         return ResponseEntity.ok(shorterService.getShortUrl(baseUrl));
     }
