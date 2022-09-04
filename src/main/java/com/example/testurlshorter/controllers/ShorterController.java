@@ -34,11 +34,11 @@ public class ShorterController {
 
     @ExceptionHandler
     public ResponseEntity handleDecodingException(DecodingException exception){
-        return new ResponseEntity("Ссылка не распознана", HttpStatus.BAD_REQUEST);
+        return new ResponseEntity("Ссылка не распознана. " + exception.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler
     public ResponseEntity handleDecodingException(EncodingException exception){
-        return new ResponseEntity("Ссылка не может быть зашифрована", HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity("Ссылка не может быть зашифрована." + exception.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
