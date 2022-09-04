@@ -6,14 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Repository
-public class UrlsInMemoryRepositoryImpl {
+public class UrlsInMemoryRepository implements UrlsRepository {
     private Map<String, String> repository = new HashMap<>();
 
+    @Override
     public void initUrl(String token, String baseUrl) {
         repository.put(token, baseUrl);
     }
 
-    public String getUrl(String token){
-        repository.get(token);
+    @Override
+    public String getUrl(String token) {
+        return repository.get(token);
     }
 }
